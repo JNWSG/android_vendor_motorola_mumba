@@ -29842,6 +29842,36 @@ cc_prebuilt_binary {
 }
 
 cc_prebuilt_binary {
+    name: "snapdragon_services",
+    owner: "motorola",
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/bin/snapdragon_services",
+            ],
+            shared_libs: [
+                "liblog",
+                "libbinder_ndk",
+                "vendor.qti.snapdragonServices-V1-ndk",
+                "libbase",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    strip: {
+        none: true,
+    },
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_binary {
     name: "sns_mot_client",
     owner: "motorola",
     target: {
